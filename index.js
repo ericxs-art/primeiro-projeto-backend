@@ -28,21 +28,22 @@ app.set("views", path.join(__dirname, "views"))
 
 app.get("/home",(req,res) => {
     res.status(200)
-    res.render("index")
+    res.render("index", {titulo: "Pagina inicial"})
 })
+app.get("/",(req,res) => {
+res.status(200).render("index",{titulo: "Pagina inicial"})
+})
+
 // como colocar arquivos na buscar 
 // get = barra de busca
 app.use((req,res) => {
-    res.status(404).render("404")
+    res.status(404).render("404",{titulo: "Pagina de erro"})
 })
 
 
 
 //primeira rota req = requisição e res = resposta
 //segunda rota requisição e resposta
-app.get("/",(req,res) => {
-res.status(200).send("olá, parabéns conseguiu")
-})
 
 
 
